@@ -1,9 +1,12 @@
 import streamlit as st
 from huggingface_hub import InferenceClient
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 # ----- CONFIG -----
-HF_TOKEN = "your_hf_token_here"  # Paste your Hugging Face API token here
-MODEL_ID = "HuggingFaceH4/zephyr-7b-beta"
+HF_TOKEN = os.getenv("HF_token")
+MODEL_ID = os.getenv("Model_name")
 
 client = InferenceClient(model=MODEL_ID, token=HF_TOKEN)
 
